@@ -1,10 +1,17 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, TextInput } from "react-native";
 
 interface SearchFieldProps {}
 
 export const SearchField = ({}: SearchFieldProps) => {
-  return <View></View>;
+  return <TextInput placeholder="Search coffee" style={style.search_input} />;
 };
 
-const style = StyleSheet.create({});
+const style = StyleSheet.create({
+  search_input: {
+    backgroundColor: "#fff",
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 16,
+  },
+});
