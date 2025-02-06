@@ -6,6 +6,8 @@ import {
   Image,
   FlatList,
   StyleSheet,
+  View,
+  ScrollView,
 } from "react-native";
 import { coffeeItems, Item } from "../../../items";
 import { WIDTH } from "../../../constants/dimentions";
@@ -29,6 +31,10 @@ export const ItemList = ({}: ItemListProps) => {
   return (
     <FlatList
       numColumns={2}
+      columnWrapperStyle={{
+        justifyContent: "space-between",
+        marginBottom: 24,
+      }}
       data={coffeeItems}
       renderItem={renderItem}
       keyExtractor={(item) => String(item.id)}
@@ -38,11 +44,11 @@ export const ItemList = ({}: ItemListProps) => {
 
 const style = StyleSheet.create({
   card_container: {
-    width: WIDTH * 0.45,
+    width: "48%",
     backgroundColor: COLORS.card_bg,
-    borderRadius: 12,
     padding: 10,
-    margin: 8,
+    borderWidth: 1,
+    borderRadius: 16,
   },
-  item_image: { width: "100%", height: 120, borderRadius: 12 },
+  item_image: { width: "100%", borderRadius: 16, resizeMode: "contain" },
 });

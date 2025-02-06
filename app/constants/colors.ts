@@ -8,5 +8,5 @@ export const COLORS = {
   text_sec: "#A2A2A2",
   text_primary: "#050505",
   bg_primary: "#F9F9F9",
-  pillInactive: "rgba(237, 237, 237, 0.35)",
+  pillInactive: "rgba(237, 237, 237, 0.5)",
 };
