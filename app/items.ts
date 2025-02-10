@@ -40,4 +40,18 @@ export const coffeeItems: Item[] = [
     price: 3.53,
     image: flatwhite,
   },
+  {
+    id: 5,
+    name: "Caffe Mocha",
+    description: "Deep Foam",
+    price: 4.53,
+    image: mocha,
+  },
+  {
+    id: 6,
+    name: "Flat White",
+    description: "Espresso",
+    price: 3.53,
+    image: flatwhite,
+  },
 ];

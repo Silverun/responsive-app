@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import {
   SafeAreaView,
   useSafeAreaInsets,
@@ -18,7 +18,7 @@ const HomeScreen = () => {
   const paddingTop = (imageHeight + safeAreaTop) / 2;
 
   return (
-    <>
+    <View style={style.container}>
       <GradientTop>
         <SafeAreaView
           edges={["left", "right", "top"]}
@@ -36,19 +36,24 @@ const HomeScreen = () => {
         <Filter />
         <ItemList />
       </SafeAreaView>
-    </>
+    </View>
   );
 };
 
 export default HomeScreen;
 
 const style = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   top_container: {
+    paddingTop: 16,
     height: topContainerHeight,
     paddingHorizontal: 16,
     rowGap: 16,
   },
   bot_container: {
+    flex: 1,
     paddingHorizontal: 16,
     rowGap: 16,
   },

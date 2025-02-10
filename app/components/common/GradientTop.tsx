@@ -10,16 +10,10 @@ export const GradientTop = ({ children }: ViewProps) => {
       colors={["#111111", "#313131"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}
-      style={styles.container}
     >
       {children}
     </LinearGradient>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // rowGap: 16,
-  },
-});
+const styles = StyleSheet.create({});

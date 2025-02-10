@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import React, { useEffect } from "react";
+import { View, Image, StyleSheet, Platform } from "react-native";
 import {
   promoBanner,
   aspectRatio,
@@ -12,9 +12,11 @@ interface PromoProps {}
 
 export const Promo = ({}: PromoProps) => {
   const { top: safeAreaTop } = useSafeAreaInsets();
-  console.log(topContainerHeight, imageHeight, safeAreaTop);
+
+  console.log(topContainerHeight, safeAreaTop, imageHeight, Platform.OS);
+
   const top = topContainerHeight + safeAreaTop - imageHeight;
-  // const top = 184;
+  // const top = 0;
   return (
     <View style={style.container}>
       <Image
