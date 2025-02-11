@@ -1,5 +1,11 @@
-import React, { useEffect } from "react";
-import { View, Image, StyleSheet, Platform } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  View,
+  Image,
+  StyleSheet,
+  Platform,
+  LayoutChangeEvent,
+} from "react-native";
 import {
   promoBanner,
   aspectRatio,
@@ -12,15 +18,22 @@ interface PromoProps {}
 
 export const Promo = ({}: PromoProps) => {
   const { top: safeAreaTop } = useSafeAreaInsets();
+  const [topOffset, setTopOffset] = useState(0);
 
-  console.log(topContainerHeight, safeAreaTop, imageHeight, Platform.OS);
+  // useEffect(() => {
+  //   console.log(topContainerHeight, safeAreaTop, imageHeight, Platform.OS, top);
+  // }, [safeAreaTop]);
 
-  const top = topContainerHeight + safeAreaTop - imageHeight;
-  // const top = 0;
+  const onLayout = (e: LayoutChangeEvent) => {
+    const promoContainerHeight = e.nativeEvent.layout.height;
+    console.log("onLayout", promoContainerHeight, Platform.OS);
+    setTopOffset(topContainerHeight - promoContainerHeight / 2);
+  };
+
   return (
-    <View style={style.container}>
+    <View onLayout={onLayout} style={[style.container, { top: topOffset }]}>
       <Image
-        style={[style.promo_image, { aspectRatio, top }]}
+        style={[style.promo_image, { aspectRatio }]}
         source={promoBanner}
       />
     </View>
@@ -35,6 +48,8 @@ const style = StyleSheet.create({
     alignItems: "center",
     position: "absolute",
     paddingHorizontal: 16,
+    borderWidth: 1,
+    borderColor: "green",
   },
   promo_image: {
     width: "100%",

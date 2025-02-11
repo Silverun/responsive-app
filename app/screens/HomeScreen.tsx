@@ -14,7 +14,7 @@ import { topContainerHeight } from "../constants/home";
 import { imageHeight } from "../constants/promo";
 
 const HomeScreen = () => {
-  const { top: safeAreaTop } = useSafeAreaInsets();
+  const { top: safeAreaTop, bottom } = useSafeAreaInsets();
   const paddingTop = (imageHeight + safeAreaTop) / 2;
 
   return (
@@ -22,7 +22,7 @@ const HomeScreen = () => {
       <GradientTop>
         <SafeAreaView
           edges={["left", "right", "top"]}
-          style={style.top_container}
+          style={[style.top_container, { paddingBottom: 80 }]}
         >
           <LocationPicker />
           <SearchField />
@@ -31,7 +31,7 @@ const HomeScreen = () => {
       <Promo />
       <SafeAreaView
         style={[style.bot_container, { paddingTop }]}
-        edges={["left", "right", "bottom"]}
+        edges={["left", "right"]}
       >
         <Filter />
         <ItemList />
