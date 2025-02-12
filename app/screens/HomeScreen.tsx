@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import {
   SafeAreaView,
@@ -11,26 +11,28 @@ import { Promo } from "../components/presentation/homeScreen/Promo";
 import { Filter } from "../components/presentation/homeScreen/Filters";
 import { GradientTop } from "../components/common/GradientTop";
 import { topContainerHeight } from "../constants/home";
-import { imageHeight } from "../constants/promo";
 
 const HomeScreen = () => {
-  const { top: safeAreaTop, bottom } = useSafeAreaInsets();
-  const paddingTop = (imageHeight + safeAreaTop) / 2;
+  const [promoHeight, setPromoHeight] = useState(0);
+
+  const getPromoHeight = (height: number) => {
+    setPromoHeight(height);
+  };
 
   return (
     <View style={style.container}>
       <GradientTop>
         <SafeAreaView
           edges={["left", "right", "top"]}
-          style={[style.top_container, { paddingBottom: 80 }]}
+          style={[style.top_container, { paddingBottom: promoHeight / 2 }]}
         >
           <LocationPicker />
           <SearchField />
         </SafeAreaView>
       </GradientTop>
-      <Promo />
+      <Promo getPromoHeight={getPromoHeight} />
       <SafeAreaView
-        style={[style.bot_container, { paddingTop }]}
+        style={[style.bot_container, { paddingTop: promoHeight / 2 + 16 }]}
         edges={["left", "right"]}
       >
         <Filter />
@@ -47,10 +49,10 @@ const style = StyleSheet.create({
     flex: 1,
   },
   top_container: {
-    paddingTop: 16,
+    paddingTop: topContainerHeight * 0.05,
     height: topContainerHeight,
     paddingHorizontal: 16,
-    rowGap: 16,
+    rowGap: topContainerHeight * 0.05,
   },
   bot_container: {
     flex: 1,

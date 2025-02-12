@@ -33,7 +33,7 @@ export const ItemList = ({}: ItemListProps) => {
       numColumns={2}
       columnWrapperStyle={{
         justifyContent: "space-between",
-        marginBottom: 24,
+        marginBottom: 16,
       }}
       data={coffeeItems}
       renderItem={renderItem}
