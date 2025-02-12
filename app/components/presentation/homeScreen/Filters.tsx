@@ -12,11 +12,16 @@ const filterData: FilterItem[] = [
   { label: "Macchiato", selected: false },
   { label: "Latte", selected: false },
   { label: "Americano", selected: false },
+  { label: "Lungo", selected: false },
 ];
 
 export const Filter = () => {
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+    <ScrollView
+      contentContainerStyle={styles.filterContainer}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+    >
       {filterData.map((item, index) => (
         <View
           key={index}
@@ -40,21 +45,23 @@ export const Filter = () => {
 };
 
 const styles = StyleSheet.create({
+  filterContainer: {
+    columnGap: 12,
+  },
   filterButton: {
     borderWidth: 1,
     backgroundColor: COLORS.pillInactive,
     borderRadius: 8,
-    marginRight: 18, // Spacing between each filter
-    textAlign: "center",
+    padding: 8,
   },
   filterButtonSelected: {
-    backgroundColor: COLORS.button, // Brown color for the selected filter
+    backgroundColor: COLORS.button,
   },
   filterText: {
     color: "#000",
-    padding: 8,
+    borderWidth: 1,
   },
   filterTextSelected: {
-    color: "#FFF", // White text for the selected filter
+    color: "#FFF",
   },
 });

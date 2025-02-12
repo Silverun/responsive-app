@@ -57,6 +57,7 @@ const style = StyleSheet.create({
   bot_container: {
     flex: 1,
     paddingHorizontal: 16,
+    borderWidth: 1,
     rowGap: 16,
   },
 });

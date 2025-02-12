@@ -22,9 +22,11 @@ export const ItemList = ({}: ItemListProps) => {
       style={style.card_container}
     >
       <Image source={item.image} style={style.item_image} />
-      <Text>{item.name}</Text>
-      <Text>{item.description}</Text>
-      <Text>{item.price}</Text>
+      <View style={style.text_container}>
+        <Text>{item.name}</Text>
+        <Text>{item.description}</Text>
+        <Text>{item.price}</Text>
+      </View>
     </TouchableOpacity>
   );
 
@@ -43,12 +45,19 @@ export const ItemList = ({}: ItemListProps) => {
 };
 
 const style = StyleSheet.create({
+  list_container: {
+    borderWidth: 1,
+    // flex: 1,
+  },
   card_container: {
     width: "48%",
     backgroundColor: COLORS.card_bg,
-    padding: 10,
+    padding: 12,
     borderWidth: 1,
     borderRadius: 16,
   },
-  item_image: { width: "100%", borderRadius: 16, resizeMode: "contain" },
+  text_container: {
+    marginTop: 4,
+  },
+  item_image: { width: "100%", borderRadius: 16, resizeMode: "cover" },
 });
