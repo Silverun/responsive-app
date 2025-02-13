@@ -12,19 +12,24 @@ import {
 import { coffeeItems, Item } from "../../../items";
 import { WIDTH } from "../../../constants/dimentions";
 import { COLORS } from "../../../constants/colors";
+import { useNavigation } from "@react-navigation/native";
+import { HomeStackParamList } from "../../../navigation/stack";
+import { useHomeNavigation } from "../../../navigation/types";
 
 interface ItemListProps {}
 
 export const ItemList = ({}: ItemListProps) => {
+  const navigation = useHomeNavigation();
+
   const renderItem: ListRenderItem<Item> = ({ item, index }) => (
     <TouchableOpacity
-      //   onPress={() => index === 0 && navigation.navigate("Details", { item })}
+      onPress={() => index === 0 && navigation.navigate("Details", { item })}
       style={style.card_container}
     >
       <Image source={item.image} style={style.item_image} />
       <View style={style.text_container}>
         <Text>{item.name}</Text>
-        <Text>{item.description}</Text>
+        <Text>{item.type}</Text>
         <Text>{item.price}</Text>
       </View>
     </TouchableOpacity>

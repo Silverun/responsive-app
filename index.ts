@@ -1,5 +1,5 @@
 import { registerRootComponent } from "expo";
-
+import "./gesture-handler";
 import App from "./app/App";
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);

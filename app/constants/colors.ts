@@ -9,4 +9,6 @@ export const COLORS = {
   text_primary: "#050505",
   bg_primary: "#F9F9F9",
   pillInactive: "rgba(237, 237, 237, 0.5)",
+  icons_bg: "rgba(237, 237, 237, 0.35)",
+  foundation_brown_normal: "#C67C4E",
 };
