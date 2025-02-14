@@ -11,6 +11,7 @@ const ref = createNavigationContainerRef();
 
 export default function App() {
   const [routeName, setRouteName] = useState<string>();
+  const isHome = routeName === "Home";
 
   return (
     <SafeAreaProvider>
@@ -19,7 +20,7 @@ export default function App() {
         onReady={() => setRouteName(ref.current?.getCurrentRoute()?.name)}
         onStateChange={() => setRouteName(ref.current?.getCurrentRoute()?.name)}
       >
-        <StatusBar style="light" />
+        <StatusBar style={isHome ? "light" : "dark"} />
         <Tabs routeName={routeName} />
       </NavigationContainer>
     </SafeAreaProvider>

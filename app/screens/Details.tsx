@@ -5,15 +5,21 @@ import { HomeStackParamList } from "../navigation/stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS } from "../constants/colors";
 import { ScrollView } from "react-native-gesture-handler";
+import { HEIGHT } from "../constants/dimentions";
 
 type DetailsScreenProps = StackScreenProps<HomeStackParamList, "Details">;
 
 export const Details = ({ route, navigation }: DetailsScreenProps) => {
   const { item } = route.params;
+  const rowGap = HEIGHT * 0.03;
 
   return (
-    <ScrollView contentContainerStyle={style.container}>
-      <View style={style.container_inner}>
+    <ScrollView
+      bounces={false}
+      overScrollMode="never"
+      contentContainerStyle={[style.container, { rowGap }]}
+    >
+      <View style={[style.container_inner, { rowGap }]}>
         <View style={style.image_container}>
           <Image
             resizeMethod="scale"
@@ -50,7 +56,10 @@ export const Details = ({ route, navigation }: DetailsScreenProps) => {
         {/* description bottom */}
         <View>
           <Text style={style.text_desc_label}>Description</Text>
-          <Text style={style.text_desc}>{item.description}</Text>
+          <Text style={style.text_desc}>
+            {item.description}
+            <Text style={style.text_desc_expand}> Read more</Text>
+          </Text>
         </View>
         {/* Size picker*/}
         <View>
@@ -93,18 +102,14 @@ export const Details = ({ route, navigation }: DetailsScreenProps) => {
 
 const style = StyleSheet.create({
   container: {
-    // flex: 1,
-    rowGap: 12,
+    backgroundColor: COLORS.bg_primary,
   },
   container_inner: {
-    // flex: 1,
-    // height: "80%",
     paddingHorizontal: 24,
     paddingTop: 24,
     width: "100%",
-    // backgroundColor: "lightgrey",
     rowGap: 16,
-    paddingBottom: 24,
+    // paddingBottom: 24,
   },
   image_container: {
     // borderWidth: 1,
@@ -148,6 +153,11 @@ const style = StyleSheet.create({
   },
   text_desc: {
     color: COLORS.text_sec,
+    fontSize: 16,
+  },
+  text_desc_expand: {
+    color: COLORS.button,
+    fontWeight: "bold",
   },
   desc_top_icon: {
     borderRadius: 12,
@@ -181,10 +191,9 @@ const style = StyleSheet.create({
     paddingVertical: "3%",
   },
   add_to_cart: {
-    // flex: 1,
-    paddingTop: 16,
-    paddingBottom: 46,
-    // height: "20%",
+    paddingTop: "5%",
+    paddingBottom: "5%",
+    height: "100%",
     paddingHorizontal: 24,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -204,8 +213,8 @@ const style = StyleSheet.create({
     alignItems: "center",
     borderRadius: 16,
     width: "65%",
-    height: "40%",
-    paddingVertical: "4%",
+    paddingVertical: "6%",
+    alignSelf: "flex-start",
   },
   add_to_cart_button_text: {
     color: "white",

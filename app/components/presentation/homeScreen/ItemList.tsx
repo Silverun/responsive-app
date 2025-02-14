@@ -58,7 +58,7 @@ const style = StyleSheet.create({
     width: "48%",
     backgroundColor: COLORS.card_bg,
     padding: 12,
-    borderWidth: 1,
+    // borderWidth: 1,
     borderRadius: 16,
   },
   text_container: {

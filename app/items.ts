@@ -19,7 +19,7 @@ export const coffeeItems: Item[] = [
     type: "Deep Foam",
     price: 4.53,
     description:
-      "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85ml of fresh milk the fo.. Read More",
+      "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85ml of fresh milk the fo...",
     image: mocha,
   },
   {

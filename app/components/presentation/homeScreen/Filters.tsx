@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     columnGap: 12,
   },
   filterButton: {
-    borderWidth: 1,
+    // borderWidth: 1,
     backgroundColor: COLORS.pillInactive,
     borderRadius: 8,
     padding: 8,
@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
   },
   filterText: {
     color: "#000",
-    borderWidth: 1,
+    // lineHeight: 22,
+    // borderWidth: 1,
   },
   filterTextSelected: {
     color: "#FFF",
